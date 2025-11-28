@@ -20,7 +20,8 @@
   "homepage": "https://github.com/renato-chagas/livraria-backend-ts#readme",
   "dependencies": {
     "@types/express": "^5.0.5",
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "prisma": "^6.19.0"
   },
   "devDependencies": {
     "@types/node": "^24.10.1",
