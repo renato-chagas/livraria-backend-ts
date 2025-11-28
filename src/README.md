@@ -12,5 +12,3 @@ Raiz do código fonte do backend.
 - `helpers/`: trechos de infraestrutura/arquitetura (adaptadores, mapeamentos).
 - `types/`: tipos TypeScript compartilhados ou declarações (`.d.ts`).
 - `tests/`: testes unitários/integrados.
-
-Coloque aqui uma descrição de alto nível do projeto e como navegar nesta estrutura.
