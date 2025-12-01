@@ -1,7 +1,40 @@
 {
+  "name": "livraria-backend-ts",
+  "version": "1.0.0",
+  "description": "Estrutura inicial do backend em TypeScript.",
+  "type": "module",
+  "main": "src/server.ts",
+  "scripts": {
+    "dev": "nodemon --watch src --ext ts --exec \"tsc && node dist/server.js\"",
+    "build": "tsc",
+    "start": "node dist/server.js"
+  },
   "devDependencies": {
-    "@types/node": "^24.10.1",
+    "@types/dotenv": "^6.1.1",
+    "@types/express": "^5.0.5",
+    "@types/node": "^20.19.25",
+    "@types/pg": "^8.15.6",
     "tsx": "^4.20.6",
     "typescript": "^5.9.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/renato-chagas/livraria-backend-ts.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/renato-chagas/livraria-backend-ts/issues"
+  },
+  "homepage": "https://github.com/renato-chagas/livraria-backend-ts#readme",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.86.0",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "nodemon": "^3.1.11",
+    "pg": "^8.16.3",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.37.7"
   }
 }
