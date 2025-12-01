@@ -1,31 +1,7 @@
 {
-  "name": "livraria-backend-ts",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/renato-chagas/livraria-backend-ts.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/renato-chagas/livraria-backend-ts/issues"
-  },
-  "homepage": "https://github.com/renato-chagas/livraria-backend-ts#readme",
-  "dependencies": {
-    "@types/express": "^5.0.5",
-    "express": "^5.1.0",
-    "prisma": "^6.19.0"
-  },
   "devDependencies": {
     "@types/node": "^24.10.1",
-    "ts-node-dev": "^2.0.0",
+    "tsx": "^4.20.6",
     "typescript": "^5.9.3"
   }
 }
