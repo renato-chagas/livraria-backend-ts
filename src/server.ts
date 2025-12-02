@@ -17,17 +17,17 @@ app.use('/api', router);
 async function startServer() {
     try {
         await sequelize.authenticate();
-        console.log('✅ Conexão com Supabase estabelecida!');
+        console.log('Conexão com Supabase estabelecida!');
 
         await sequelize.sync({ force: false, alter: true });
-        console.log('✅ Banco de dados sincronizado.');
+        console.log('Banco de dados sincronizado.');
 
         app.listen(PORT, () => {
-            console.log(`🚀 Server is running on http://localhost:${PORT}`);
+            console.log(`Server is running on http://localhost:${PORT}`);
         });
 
     } catch (error) {
-        console.error('❌ Erro fatal ao iniciar o servidor:', error);
+        console.error('Erro fatal ao iniciar o servidor:', error);
     }
 }
 
