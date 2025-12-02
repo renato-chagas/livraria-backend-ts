@@ -1,15 +1,47 @@
 import { Request, Response } from 'express';
-import User from '../models/user/User.js';
+import User from '../../models/userModel/User.js';
+import { AuthService } from '../../services/auth.service.js';
 
 export class userController {
-    static async create(req: Request, res: Response) {
+
+    static async login(req: Request, res: Response) {
+        try {
+            const { email, password } = req.body;
+
+            const user = await User.findOne({ where: { email } });
+
+            if (!user) {
+                return res.status(401).json({ error: 'Credenciais inválidas' });
+            }
+
+            const isPasswordValid = await AuthService.comparePassword(password, user.password);
+
+            if (!isPasswordValid) {
+                return res.status(401).json({ error: 'Credenciais inválidas' });
+            }
+
+            const token = AuthService.generateToken({ id: user.id, email: user.email, role: user.role });
+
+            const userResponse = user.toJSON();
+            delete userResponse.password;
+
+            res.status(200).json({ token, user: userResponse });
+
+        } catch (error: any) {
+            res.status(500).json({ error: error.message });
+        }
+    }
+
+    static async createUser(req: Request, res: Response) {
         try {
             const { name, email, password, role } = req.body;
+
+            const hashedPassword = await AuthService.hashPassword(password);
 
             const newUser = await User.create({
                 name,
                 email,
-                password,
+                password: hashedPassword,
                 role
             });
 
@@ -53,7 +85,14 @@ export class userController {
     static async update(req: Request, res: Response) {
         try {
             const { id } = req.params;
-            const [updated] = await User.update(req.body, {
+
+            const payload = { ...req.body };
+
+            if (payload.password) {
+                payload.password = await AuthService.hashPassword(payload.password);
+            }
+
+            const [updated] = await User.update(payload, {
                 where: { id }
             });
 

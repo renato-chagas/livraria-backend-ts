@@ -30,7 +30,7 @@ export class BookController {
     }
   }
 
-  // Listar todos os livros com paginação
+  // Listar tm,.;odos os livros com paginação
   static async getAll(req: Request, res: Response) {
     try {
       const page = parseInt(req.query.page as string) || 1;

@@ -5,8 +5,8 @@ interface BookAttributes {
     id: number;
     title: string;
     price: number;
-    isbn?: string | null;
-    synopsis?: Text | null;
+    isbn: string | null;
+    synopsis: Text | null;
     // Chaves Estrangeiras
     authorId: number;
     publisherId: number;
@@ -57,7 +57,7 @@ Book.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: 'authors', // Nome da tabela
+                model: 'authors',
                 key: 'id'
             }
         },
